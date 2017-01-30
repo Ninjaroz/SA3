@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Credit Card Validation</title>
+</head>
+  <style>
+  
+		  *{
+		  		font-family: Arial, sans-serif;
+		  }
+		        label {
+		        font-weight: bold;
+		        display:block;
+		        margin-top: 5px;
+		        }      
+		        
+            .error {
+                color: red;
+                font-weight: bold;
+                display: block;
+                margin-top: 10px;
+            }
+            
+            .output {
+                color: blue;
+                font-weight: bold;
+                display: block;
+                margin-top: 10px;
+            }
+  </style>
+
+<body>
+	<h:form>
+	 		<h3>Enter your Credit Card Information</h3>
+            <fieldset>
+            <legend>Member information</legend>
+           	<h:outputLabel id="oLabel1" for="fName" value="First Name:"/>
+            <h:outputText value="#{indexBean.fNameFail}" class="error"/>
+            <h:inputText id="fName" value="#{indexBean.fName}"/>
+            
+            <h:outputLabel id="oLabel2" for="lName" value="Last Name:"/>
+            <h:outputText value="#{indexBean.lNameFail}" class="error"/>
+            <h:inputText value="#{indexBean.lName}"/>
+            
+            <h:outputLabel id="oLabel3" for="address" value="Address:"/>
+            <h:outputText value="#{indexBean.addressFail}" class="error"/>
+            <h:inputText value="#{indexBean.address}"/>
+            
+            <h:outputLabel id="oLabel4" for="city" value="City:"/>
+            <h:outputText value="#{indexBean.cityFail}" class="error"/>
+            <h:inputText value="#{indexBean.city}"/>
+            
+            <h:outputLabel id="oLabel5" for="state" value="State:"/>
+            <h:outputText value="#{indexBean.stateFail}" class="error"/>
+            <h:inputText value="#{indexBean.state}"/>
+            
+            <h:outputLabel id="oLabel6" for="zip" value="Zip:"/>
+            <h:outputText value="#{indexBean.zipFail}" class="error"/>
+            <h:inputText value="#{indexBean.zip}"/>
+            </fieldset>
+            
+            <fieldset>
+            <legend>Card Information</legend>
+            <h:outputLabel id="oLabel7" for="cNumber" value="Credit Card Number:"/>
+            <h:outputText value="#{indexBean.cNumberFail}" class="error"/>
+            <h:inputText value="#{indexBean.cNumber}"/>
+	
+			<h:outputLabel id="oLabel8" for="cDate" value="Expiration Date:"/>
+			<h:outputText value="#{indexBean.dateFail}" class="error"/>
+            <h:inputText id="cDate" value ="#{indexBean.cDate}"/>
+            
+			<h:outputLabel id="oLabel9" for="sCode" value="Security Code:"/>
+			<h:outputText value="#{indexBean.sCodeFail}" class="error"/>
+            <h:inputText id="sCode" value ="#{indexBean.sCode}"/>
+           </fieldset>
+            <br/>
+            <fieldset>
+            <legend>Output</legend>
+           	<h:outputText value="#{indexBean.cExists}" class="output"/>
+           	</fieldset>
+			<h:commandButton id="submit" value="submit" action="#{indexBean.checkIsValid}"></h:commandButton>
+			
+	</h:form>
+</body>
+</html>
